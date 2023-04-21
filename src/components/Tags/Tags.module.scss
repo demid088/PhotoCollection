@@ -1,0 +1,42 @@
+.tags {
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 5px;
+    padding: 12px 18px;
+    background-color: var(--color-4);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-2);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      border-color: var(--color-1);
+    }
+
+    &.active {
+      background-color: var(--color-1);
+      color: var(--color-4);
+      cursor: default;
+    }
+  }
+}
+
+.search__input {
+  font-size: 16px;
+  width: 250px;
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.15s ease-in-out;
+
+  &:focus {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+  }
+}
