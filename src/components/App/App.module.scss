@@ -35,6 +35,9 @@
   }
 
   .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 40px;
 
     @media (max-width: 1000px) {

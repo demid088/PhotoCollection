@@ -7,7 +7,7 @@ import { Fragment } from 'react'
 import css from './Tags.module.scss'
 // CONST
 
-function Tags() {
+function Tags({ value, onChange}) {
   return (
     <Fragment>
       <ul className={css.tags}>
@@ -17,7 +17,7 @@ function Tags() {
         <li>Архитектура</li>
         <li>Города</li>
       </ul>
-      <input className={css.search__input} placeholder='Поиск по названию' />
+      <input value={value} onChange={e => onChange(e.target.value)} className={css.search__input} placeholder='Поиск по названию' />
     </Fragment>
   )
 }
