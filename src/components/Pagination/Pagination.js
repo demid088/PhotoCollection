@@ -7,12 +7,20 @@ import { useState, useEffect } from 'react'
 import css from './Pagination.module.scss'
 // CONST
 
-function Pagination() {
+function Pagination({ countCollections, limit, page, setPage }) {
+  let arrSize = Math.ceil(countCollections / limit)
+
   return (
     <ul className={css.pagination}>
-      <li>1</li>
-      <li className={css.active}>2</li>
-      <li>3</li>
+      {[...Array(arrSize)].map((val, idx) => (
+        <li
+          key={idx}
+          onClick={() => setPage(idx + 1)}
+          className={idx + 1 === page ? css.active : ''}
+        >
+          {idx + 1}
+        </li>
+      ))}
     </ul>
   )
 }

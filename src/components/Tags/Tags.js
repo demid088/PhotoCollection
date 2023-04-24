@@ -7,17 +7,16 @@ import { Fragment } from 'react'
 import css from './Tags.module.scss'
 // CONST
 
-function Tags({ value, onChange}) {
+function Tags({ id, setId, categories, searchVal, onChange}) {
   return (
     <Fragment>
       <ul className={css.tags}>
-        <li className={css.active}>Все</li>
-        <li>Горы</li>
-        <li>Море</li>
-        <li>Архитектура</li>
-        <li>Города</li>
+        {
+          categories.map((cat, idx) => 
+            <li onClick={() => setId(idx)} className={id === idx ? css.active : ''} key={cat.name}>{cat.name}</li>)
+        }
       </ul>
-      <input value={value} onChange={e => onChange(e.target.value)} className={css.search__input} placeholder='Поиск по названию' />
+      <input value={searchVal} onChange={e => onChange(e.target.value)} className={css.search__input} placeholder='Поиск по названию' />
     </Fragment>
   )
 }
