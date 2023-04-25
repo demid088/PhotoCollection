@@ -4,18 +4,17 @@ import Loader from './ContentLoader';
 import Collection from './../Collection/Collection';
 import Tags from './../Tags/Tags';
 import Pagination from './../Pagination/Pagination';
-// lib's
-import ObjIsEmpty from '../../lib/obj_is_empty/index';
 // styles
 import css from './App.module.scss'
 // JSON
 const dataUrl = './data.json'
 
-
+// Добавить прелоадер для картинок
+// Увеличение блока при нажатии
+// Просмотр увеличенных картинок
 
 function App() {
   const limitOnPage = 3
-  // ДОДЕЛАТЬ ПАГИНАЦИЮ!!!!!!!!!!!!!!!!!!
 
   const [isLoad, setIsLoad] = useState(true)
   const [categoryId, setCategoryId] = useState(0)
@@ -29,36 +28,35 @@ function App() {
     fetch(dataUrl)
       .then((data) => data.json())
       .then((json) => {
-        setCategories(json.categories)
-        setTotalCollections(json.collections.length)
-        setCollections(
-          json.collections
-            .filter((obj) =>
-              obj.name.toLowerCase().includes(searchVal.toLowerCase())
-            )
-            .filter((obj) => (categoryId ? categoryId === obj.category : true))
-            .filter(
-              (obj, idx) =>
-                idx >= (page - 1) * limitOnPage &&
-                idx <  (page - 1) * limitOnPage + limitOnPage
-            )
+        const total = json.collections
+          .filter((obj) =>
+            obj.name.toLowerCase().includes(searchVal.toLowerCase())
+          )
+          .filter((obj) => (categoryId ? categoryId === obj.category : true))
+        const result = total.filter(
+          (obj, idx) =>
+            idx >= (page - 1) * limitOnPage &&
+            idx < (page - 1) * limitOnPage + limitOnPage
         )
+        setCategories(json.categories)
+        setTotalCollections(total.length)
+        setCollections(result)
       })
       .catch((err) => {
         console.warn(err)
         alert('Ошибка получения данных!')
       })
       .finally(() => setIsLoad(false))
-  }, [searchVal, categoryId])
+  }, [searchVal, categoryId, page])
   
-  if (collections.length > 0) {
+  if (!isLoad) {
     return (
       <div className={css.App}>
         <h1 className={css.title}>Моя коллекция фотографий</h1>
         <div className={css.top}>
           <Tags
             id={categoryId}
-            setId={setCategoryId}
+            setCategoryId={setCategoryId}
             categories={categories}
             searchVal={searchVal}
             onChange={setSearchVal}

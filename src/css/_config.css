@@ -10,7 +10,8 @@ html {
 body {
   max-width: 1200px;
   min-width: 320px;
-  background-color: rgb(139, 139, 139);
+  /* background-color: rgb(139, 139, 139); */
+  background-color: var(--color-2);
   width: 100%;
   margin: 0 auto;
   text-rendering: optimizeLegibility;

@@ -45,21 +45,22 @@
     object-fit: cover;
   }
 
-  &__big {
+  .big {
     height: 250px;
     width: 100%;
     margin-bottom: 15px;
     border-radius: 20px;
   }
 
-  &__bottom {
+  .bottom {
     display: flex;
     justify-content: space-between;
+    
+    .mini {
+      width: 31%;
+      height: 80px;
+      border-radius: 20px;
+    }
   }
 
-  &__mini {
-    width: 31%;
-    height: 80px;
-    border-radius: 20px;
-  }
 }
