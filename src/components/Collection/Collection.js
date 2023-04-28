@@ -1,28 +1,41 @@
-import { createFactory, Fragment } from 'react'
-import Preloader from '../Preloader/Preloader'
-import ImageLoader from 'react-imageloader'
+import { useState } from 'react'
+import ImgLoader from './ImgLoader';
 // styles
 import css from './Collection.module.scss'
 
 function Collection({ name, images }) {
+  const [loaded_0, setLoaded_0] = useState(false)
+  const [loaded_1, setLoaded_1] = useState(false)
+  const [loaded_2, setLoaded_2] = useState(false)
+  const [loaded_3, setLoaded_3] = useState(false)
+
   return (
     <div className={css.collection}>
-      <ImageLoader
-        wrapper={createFactory(Fragment)}
-        preloader={Preloader}
-        src={images[0]}
-        imgProps=
-          {{
-            class: css.big,
-            alt: 'item',
-          }}
-        >
-        Error
-      </ImageLoader>
+      <div className={css.big}>
+        <div className={loaded_0 ? '_none' : css.big__load}>
+          <ImgLoader />
+        </div>
+        <img src={images[0]} alt='item' onLoad={() => setLoaded_0(true)} />
+      </div>
       <div className={css.bottom}>
-        <img className={css.mini} src={images[1]} alt='item' />
-        <img className={css.mini} src={images[2]} alt='item' />
-        <img className={css.mini} src={images[3]} alt='item' />
+        <div className={css.mini}>
+          <div className={loaded_1 ? '_none' : css.mini__load}>
+            <ImgLoader />
+          </div>
+          <img src={images[1]} alt='item' onLoad={() => setLoaded_1(true)} />
+        </div>
+        <div className={css.mini}>
+          <div className={loaded_2 ? '_none' : css.mini__load}>
+            <ImgLoader />
+          </div>
+          <img src={images[2]} alt='item' onLoad={() => setLoaded_2(true)} />
+        </div>
+        <div className={css.mini}>
+          <div className={loaded_3 ? '_none' : css.mini__load}>
+            <ImgLoader />
+          </div>
+          <img src={images[3]} alt='item' onLoad={() => setLoaded_3(true)} />
+        </div>
       </div>
       <h4>{name}</h4>
     </div>

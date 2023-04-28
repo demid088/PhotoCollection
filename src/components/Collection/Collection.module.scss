@@ -46,10 +46,27 @@
   }
 
   .big {
-    height: 250px;
+    position: relative;
     width: 100%;
+    height: 250px;
     margin-bottom: 15px;
-    border-radius: 20px;
+
+    &__load {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+    }
   }
 
   .bottom {
@@ -57,9 +74,26 @@
     justify-content: space-between;
     
     .mini {
+      position: relative;
       width: 31%;
       height: 80px;
-      border-radius: 20px;
+
+      &__load {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+      }
     }
   }
 

@@ -33,6 +33,10 @@
   display: flex !important;
 }
 
+._none {
+  display: none;
+}
+
 ._deactive {
   opacity: 0.3 !important;
   cursor: default !important;

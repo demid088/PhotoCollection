@@ -63,13 +63,13 @@ function App() {
           />
         </div>
         <div className={css.content}>
-          {isLoad
-            ? 'Идет загрузка...'
-            : collections.map((obj, idx) => {
-                return (
-                  <Collection key={idx} name={obj.name} images={obj.photos} />
-                )
-              })}
+          {
+            collections.map((obj, idx) => {
+              return (
+                <Collection key={obj.name} name={obj.name} images={obj.photos} />
+              )
+            })
+          }
         </div>
         <Pagination
           countCollections={totalCollections}
