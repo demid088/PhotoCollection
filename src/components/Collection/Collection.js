@@ -12,28 +12,36 @@ function Collection({ name, images }) {
   return (
     <div className={css.collection}>
       <div className={css.big}>
-        <div className={loaded_0 ? '_none' : css.big__load}>
-          <ImgLoader />
-        </div>
+        {!loaded_0 && (
+          <div className={css.big__load}>
+            <ImgLoader />
+          </div>
+        )}
         <img src={images[0]} alt='item' onLoad={() => setLoaded_0(true)} />
       </div>
       <div className={css.bottom}>
         <div className={css.mini}>
-          <div className={loaded_1 ? '_none' : css.mini__load}>
-            <ImgLoader />
-          </div>
+          {!loaded_1 && (
+            <div className={css.mini__load}>
+              <ImgLoader />
+            </div>
+          )}
           <img src={images[1]} alt='item' onLoad={() => setLoaded_1(true)} />
         </div>
         <div className={css.mini}>
-          <div className={loaded_2 ? '_none' : css.mini__load}>
-            <ImgLoader />
-          </div>
+          {!loaded_2 && (
+            <div className={css.mini__load}>
+              <ImgLoader />
+            </div>
+          )}
           <img src={images[2]} alt='item' onLoad={() => setLoaded_2(true)} />
         </div>
         <div className={css.mini}>
-          <div className={loaded_3 ? '_none' : css.mini__load}>
-            <ImgLoader />
-          </div>
+          {!loaded_3 && (
+            <div className={css.mini__load}>
+              <ImgLoader />
+            </div>
+          )}
           <img src={images[3]} alt='item' onLoad={() => setLoaded_3(true)} />
         </div>
       </div>
