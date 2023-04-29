@@ -9,10 +9,6 @@ import css from './App.module.scss'
 // JSON
 const dataUrl = './data.json'
 
-// Добавить прелоадер для картинок
-// Увеличение блока при нажатии
-// Просмотр увеличенных картинок
-
 function App() {
   const limitOnPage = 3
 
