@@ -2,7 +2,3 @@
 
 * React
 * Module SCSS
-
-## TODO
-
-Заменить на свои фото
