@@ -5,4 +5,4 @@
 
 ## TODO
 
--[ ] Add X in searchebar
+- [ ] Add X in searchebar
